@@ -1,0 +1,140 @@
+/* Reset */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* Body */
+
+body{
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg,#eef2f7,#dbe6f6);
+    min-height:100vh;
+    padding:40px;
+    color:#333;
+}
+
+/* Title */
+
+h1{
+    text-align:center;
+    margin-bottom:30px;
+    font-size:32px;
+    color:#2c3e50;
+}
+
+/* Form container */
+
+.form-container{
+    background:white;
+    padding:25px;
+    width:350px;
+    margin:auto;
+    border-radius:10px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    margin-bottom:30px;
+}
+
+.form-container h2{
+    margin-bottom:15px;
+    color:#34495e;
+}
+
+/* Inputs */
+
+input{
+    width:100%;
+    padding:12px;
+    margin-bottom:12px;
+    border:1px solid #ddd;
+    border-radius:6px;
+    font-size:14px;
+    transition:0.2s;
+}
+
+input:focus{
+    outline:none;
+    border-color:#3498db;
+    box-shadow:0 0 4px rgba(52,152,219,0.3);
+}
+
+/* Buttons */
+
+button{
+    padding:10px 16px;
+    border:none;
+    border-radius:6px;
+    font-size:14px;
+    cursor:pointer;
+    background:#3498db;
+    color:white;
+    transition:0.2s;
+}
+
+button:hover{
+    background:#2980b9;
+}
+
+/* Employee List */
+
+#employeeList{
+    max-width:700px;
+    margin:20px auto;
+}
+
+/* List items */
+
+li{
+    background:white;
+    padding:14px 16px;
+    margin-bottom:12px;
+    list-style:none;
+    border-radius:8px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 6px 15px rgba(0,0,0,0.08);
+    font-size:14px;
+}
+
+/* Delete button inside list */
+
+li button{
+    background:#e74c3c;
+}
+
+li button:hover{
+    background:#c0392b;
+}
+
+/* Horizontal line */
+
+hr{
+    margin:30px auto;
+    max-width:700px;
+    border:none;
+    height:1px;
+    background:#ddd;
+}
+
+/* Responsive */
+
+@media(max-width:600px){
+
+body{
+padding:20px;
+}
+
+.form-container{
+width:100%;
+}
+
+li{
+flex-direction:column;
+align-items:flex-start;
+gap:8px;
+}
+
+}

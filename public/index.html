@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Employee Portal</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>Employee Management</h1>
+
+<div class="form-container">
+
+<h2>Add Employee</h2>
+
+<input id="name" placeholder="Name">
+<input id="email" placeholder="Email">
+<input id="department" placeholder="Department">
+
+<button onclick="addEmployee()">Add Employee</button>
+
+</div>
+
+<hr>
+
+<button onclick="loadEmployees()">Load Employees</button>
+
+<ul id="employeeList"></ul>
+
+<script>
+
+const API="/api/employees";
+
+async function addEmployee(){
+
+const name=document.getElementById("name").value;
+const email=document.getElementById("email").value;
+const department=document.getElementById("department").value;
+
+await fetch(API,{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({name,email,department})
+});
+
+loadEmployees();
+
+}
+
+async function loadEmployees(){
+
+const res=await fetch(API);
+const data=await res.json();
+
+const list=document.getElementById("employeeList");
+
+list.innerHTML="";
+
+data.forEach(emp=>{
+
+const li=document.createElement("li");
+
+li.innerHTML=`
+${emp.name} (${emp.department}) - ${emp.email}
+<button onclick="deleteEmployee(${emp.id})">Delete</button>
+`;
+
+list.appendChild(li);
+
+});
+
+}
+
+async function deleteEmployee(id){
+
+await fetch(API+"/"+id,{method:"DELETE"});
+
+loadEmployees();
+
+}
+
+</script>
+
+</body>
+</html>
